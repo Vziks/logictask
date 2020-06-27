@@ -24,4 +24,8 @@ public class Fan {
     public void click(){
         fanMode.next();
     }
+
+    public FanMode getFanMode() {
+        return fanMode;
+    }
 }

@@ -14,6 +14,7 @@ public class FanMode {
 
     public FanMode(List<String> mode) {
         this.mode = mode;
+        init();
     }
 
     public int currentIndex = 0;
@@ -40,5 +41,9 @@ public class FanMode {
                 " names =" + this.mode +
                 ", currentMode='" + currentMode + '\'' +
                 '}';
+    }
+
+    public List<String> getMode() {
+        return mode;
     }
 }

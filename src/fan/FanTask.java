@@ -42,7 +42,9 @@ public class FanTask {
                 new FanMode(Arrays.asList("OFF", "SLOW", "MEDIUM", "SUPER")),
                 new FanMode(Arrays.asList("OFF", "SLOW", "MEDIUM", "FAST", "SUPER")),
                 new FanMode(Arrays.asList("OFF", "SLOW", "MEDIUM", "FAST", "SUPER", "VERY FAST")),
-                new FanMode(Arrays.asList("OFF", "SLOW", "MEDIUM", "FAST", "SUPER", "VERY FAS", "SUPER FAST"))
+                new FanMode(Arrays.asList("OFF", "SLOW", "MEDIUM", "FAST", "SUPER", "VERY FAST", "SUPER FAST")),
+                new FanMode(Arrays.asList("OFF", "SLOW", "MEDIUM", "FAST", "SUPER", "VERY FAST", "SUPER FAST", "HURRICANE")),
+                new FanMode(Arrays.asList("OFF", "SLOW", "MEDIUM", "FAST", "SUPER", "VERY FAST", "SUPER FAST", "HURRICANE", "TORNADO"))
         );
 
         Fan fan = new Fan(list.get(random.nextInt(list.size())));
@@ -50,13 +52,14 @@ public class FanTask {
         fan.click();
 
         if (list.size() >= 2) {
-            for (int i = 2; i <= list.size() + 1; i++) {
+            for (int i = 2; i <= fan.getFanMode().getMode().size(); i++) {
                 numbers.add(i);
             }
         }
 
-        int lcm = LCM(numbers) ;
+        int lcm = LCM(numbers);
 
+        System.out.println("numbers " + numbers);
         System.out.println("LCM(aka НОД) " + lcm);
 
         for (int i = 0; i < lcm - 1; i++) {
