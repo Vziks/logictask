@@ -8,9 +8,9 @@ package fan;
  */
 public class Fan {
 
-    FanInterface fanMode;
+    FanMode fanMode;
 
-    public Fan(FanInterface fanMode) {
+    public Fan(FanMode fanMode) {
         this.fanMode = fanMode;
     }
 

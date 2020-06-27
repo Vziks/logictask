@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author Anton Prokhorov <vziks@live.ru>
  */
-public abstract class FanMode {
+public class FanMode {
 
     List<String> mode;
 
@@ -31,5 +31,14 @@ public abstract class FanMode {
 
     public void init() {
         this.currentMode = this.mode.get(this.currentIndex);
+    }
+
+    @Override
+    public String toString() {
+        return "FanMode with {" +
+                "countMode = " + this.mode.size() +
+                " names =" + this.mode +
+                ", currentMode='" + currentMode + '\'' +
+                '}';
     }
 }
