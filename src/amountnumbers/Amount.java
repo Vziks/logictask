@@ -1,5 +1,7 @@
 package amountnumbers;
 
+import com.sun.istack.internal.NotNull;
+
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 
@@ -22,14 +24,12 @@ public class Amount {
         System.out.println(amountNot("111ascas3asc3dc31"));
         System.out.println(amountBlank("22323m231m1"));
         System.out.println(amountNot("22323m231m1"));
-
     }
 
-    static int amountBlank(String str) {
-        Predicate<String> blank = String::isEmpty;
+    static int amountBlank(@NotNull  String str) {
         return Pattern.compile("\\D+")
                 .splitAsStream(str)
-                .filter(Amount.blank.negate())
+                .filter(not(String::isEmpty))
                 .mapToInt(Integer::parseInt).sum();
     }
 
