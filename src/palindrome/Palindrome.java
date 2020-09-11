@@ -22,7 +22,7 @@ public class Palindrome {
     }
 
     static boolean isPalindrome(String str) {
-        str = str.toLowerCase().replace("\\s+", "");
+        str = str.toLowerCase().replaceAll("\\s+", "");
         int i = 0;
         int j = str.length() - 1;
 
