@@ -1,5 +1,9 @@
 package clocksymmetry;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.IntStream;
+
 /**
  * Class ClockSymmetry
  * Project logictask
@@ -15,20 +19,20 @@ public class ClockSymmetry {
         System.out.println("The number of symmetries in 24 hours = " + symmetry());
     }
 
-    public static int symmetry() {
-        int count = 0;
-        for (int hour = 0; hour < 24; hour++) {
-            switch (hour % 10) {
-                case 6:
-                case 7:
-                case 8:
-                case 9:
-                    break;
-                default:
-                    count++;
-                    break;
-            }
-        }
+    public static long symmetry() {
+        long count = 0;
+
+        List<Integer> list = new ArrayList<Integer>() {{
+            add(6);
+            add(7);
+            add(8);
+            add(9);
+        }};
+
+        IntStream stream = IntStream.range(0, 24);
+
+        count = stream.filter(value -> !list.contains(value % 10)).count();
+
         return count;
     }
 }
