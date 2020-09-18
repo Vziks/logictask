@@ -16,12 +16,30 @@ import java.util.stream.IntStream;
  */
 public class ClockSymmetry {
     public static void main(String[] args) {
-        System.out.println("The number of symmetries in 24 hours = " + symmetry());
+        long startTime = System.currentTimeMillis();
+
+        for (int i = 0; i < 1000000; i++) {
+            long aaa = symmetry();
+        }
+        long stopTime = System.currentTimeMillis();
+        long elapsedTime = stopTime - startTime;
+        System.out.println(elapsedTime);
+
+        startTime = System.currentTimeMillis();
+
+        for (int i = 0; i < 1000000; i++) {
+            int aaa1 = symmetry1();
+        }
+        stopTime = System.currentTimeMillis();
+        elapsedTime = stopTime - startTime;
+        System.out.println(elapsedTime);
+
     }
 
     public static long symmetry() {
         long count = 0;
 
+//        int[] arr = {6,7,8,9};
         List<Integer> list = new ArrayList<Integer>() {{
             add(6);
             add(7);
@@ -29,10 +47,28 @@ public class ClockSymmetry {
             add(9);
         }};
 
-        IntStream stream = IntStream.range(0, 24);
 
-        count = stream.filter(value -> !list.contains(value % 10)).count();
+        count = IntStream.range(0, 24).filter(value -> !list.contains(value % 10)).count();
+//        count = IntStream.range(0, 24).parallel().filter(value -> Arrays.stream(arr).noneMatch(i -> i == value % 10)).count();
 
+        return count;
+    }
+
+
+    public static int symmetry1() {
+        int count = 0;
+        for (int hour = 0; hour < 24; hour++) {
+            switch (hour % 10) {
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                    break;
+                default:
+                    count++;
+                    break;
+            }
+        }
         return count;
     }
 }
