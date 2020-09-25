@@ -12,7 +12,7 @@ public class Fibonacci {
 
     public static void main(String[] args) {
 
-        int n = 100;
+        int n = 200;
         long[] memory = new long[n + 1];
         Arrays.fill(memory, -1);
 
@@ -35,11 +35,10 @@ public class Fibonacci {
     }
 
     private static long getFibonacciMemory(int i, long[] memory) {
-
+        if (i <= 1) return i;
         if (memory[i] != -1) {
             return memory[i];
         }
-        if (i <= 1) return i;
 
         long result = getFibonacciMemory(i - 1, memory) + getFibonacciMemory(i - 2, memory);
 
