@@ -38,13 +38,17 @@ public class MaxNumber {
         }};
 
 
+        System.out.println(brutForce(list));
+    }
+
+    private static String brutForce(List<Integer> list) {
+        Map<Integer, Integer> map = new LinkedHashMap<>();
         for (int i = 0; i < list.size(); i++) {
             int max = 0;
             int s = 0;
             Integer index;
             index = null;
-            for (Integer y :
-                    list) {
+            for (Integer y : list) {
                 if (y >= 0 && max <= y && !map.containsKey(s)) {
                     index = s;
                     max = y;
@@ -52,13 +56,11 @@ public class MaxNumber {
                 s++;
             }
             map.put(index, max);
+
+            System.out.println(map);
         }
 
-
-        String brutForceString;
-        brutForceString = map.values().stream().map(Object::toString).collect(Collectors.joining(""));
-
-        System.out.println(brutForceString);
-
+//        return map.values().stream().map(Object::toString).collect(Collectors.joining(""));
+        return map.values().stream().map(Object::toString).collect(StringBuilder::new, StringBuilder::append, StringBuilder::append).toString();
     }
 }
