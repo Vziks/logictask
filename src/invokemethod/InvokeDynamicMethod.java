@@ -6,7 +6,8 @@ import java.lang.reflect.Method;
 /**
  * Class InvokeDynamicMethod
  * Project logictask
- *˚
+ * ˚
+ *
  * @author Anton Prokhorov <vziks@live.ru>
  */
 public class InvokeDynamicMethod {
@@ -35,6 +36,19 @@ public class InvokeDynamicMethod {
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             e.printStackTrace();
         }
+
+
+        int sum = new Object() {
+            class Nested {
+                public int sum(int a, int b) {
+                    return a + b;
+                }
+            }
+        }.new Nested().sum(1, 2);
+
+
+        System.out.println(sum);
+
 
     }
 }
