@@ -12,6 +12,7 @@ import java.lang.reflect.Method;
  */
 public class InvokeDynamicMethod {
 
+
     public static Object objectMethod() {
         return new Object() {
             int sum(int a, int b) {
@@ -37,18 +38,15 @@ public class InvokeDynamicMethod {
             e.printStackTrace();
         }
 
-
-        int sum = new Object() {
-            class Nested {
+        Sum clz = new Object() {
+            class Nested implements Sum {
                 public int sum(int a, int b) {
                     return a + b;
                 }
             }
-        }.new Nested().sum(1, 2);
+        }.new Nested();
 
-
-        System.out.println(sum);
-
-
+        System.out.println(clz.sum(1, 2));
+        System.out.println(clz.sum(5, 6));
     }
 }
