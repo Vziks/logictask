@@ -2,11 +2,11 @@ package invokemethod;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 
 /**
  * Class InvokeDynamicMethod
  * Project logictask
- * ˚
  *
  * @author Anton Prokhorov <vziks@live.ru>
  */
@@ -14,6 +14,8 @@ public class InvokeDynamicMethod {
 
 
     public static Object objectMethod() {
+
+
         return new Object() {
             int sum(int a, int b) {
                 return a + b;
@@ -22,6 +24,18 @@ public class InvokeDynamicMethod {
     }
 
     public static void main(String[] args) {
+
+
+        Assxas as = new Assxas();
+
+        as.start();
+
+        int a= 0;
+
+        a -=- 1;
+
+        System.out.println(a);
+
         try {
             Object obj = objectMethod();
             Class[] partypes = new Class[2];
@@ -49,4 +63,9 @@ public class InvokeDynamicMethod {
         System.out.println(clz.sum(1, 2));
         System.out.println(clz.sum(5, 6));
     }
+}
+
+
+class Assxas extends Thread {
+
 }
