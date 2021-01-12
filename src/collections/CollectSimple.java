@@ -3,6 +3,7 @@ package collections;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -31,6 +32,12 @@ public class CollectSimple {
         simpleEntityList.add(new SimpleEntity(9, "Nine", true));
         simpleEntityList.add(new SimpleEntity(9, "ANine", true));
         simpleEntityList.add(new SimpleEntity(9, "ANine", false));
+
+        Iterator<SimpleEntity> entityIterator  = simpleEntityList.iterator();
+
+        while (entityIterator.hasNext()) {
+            System.out.println(entityIterator.next());
+        }
 
         // Adds a value to the desired cell, shifting everything else, if the cell is empty, an exception(IndexOutOfBoundsException) occurs
         // simpleEntityList.add(8, new SimpleEntity(8, "Eight"));
