@@ -1,5 +1,7 @@
 package execomment;
 
+import java.util.Date;
+
 /**
  * Class ExecComment
  * Project logictask

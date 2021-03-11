@@ -1,6 +1,7 @@
 package compare;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * Class SimpleCompare
@@ -77,5 +78,46 @@ public class SimpleCompare {
         for (Animal a : animals) {
             System.out.println(a);
         }
+
+
+        Arrays.sort(animals, new Comparator()
+        {
+            public int compare(Object o1, Object o2)
+            {
+               return ((Animal)o1).getName().compareTo(((Animal)o2).getName());
+            }
+        } );
+
+        System.out.println("");
+
+        for (Animal a : animals) {
+            System.out.println(a);
+        }
+
+
+        Arrays.sort(animals, new Comparator<Animal>()
+        {
+            public int compare(Animal o1, Animal o2)
+            {
+                return o1.getName().compareTo(o2.getName());
+            }
+        } );
+
+        System.out.println("");
+
+        for (Animal a : animals) {
+            System.out.println(a);
+        }
+
+
+        Arrays.sort(animals, Comparator.comparing(Animal::getName));
+
+        System.out.println("");
+
+        for (Animal a : animals) {
+            System.out.println(a);
+        }
+
+
     }
 }
